@@ -9,7 +9,7 @@ tau = [tau(1:L-1),tau(L+1:end)];
 
 I_2w = zeros(size(tau));
 for i = 1:L
-    I_2w(i) = I(1:i).*I(L-i+1:L);
+    I_2w(i) = sum(I(1:i).*I(L-i+1:L));
     I_2w(end-i+1) = I_2w(i);
 end
 

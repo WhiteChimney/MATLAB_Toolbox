@@ -1,8 +1,13 @@
-function [time_delay, intensity] = Read_APE_Correlator_Data(filename)
+function [time_delay, intensity] = Read_APE_Correlator_Data(filename,nbrHeadlines)
+% 读取 APE 自相关仪的数据文件，导出时间轴与强度
+
+if nargin < 2
+    nbrHeadlines = 12;
+end
 
 f = fopen(filename,'r');
 
-for i = 1:12
+for i = 1:nbrHeadlines
     fgetl(f);
 end
 

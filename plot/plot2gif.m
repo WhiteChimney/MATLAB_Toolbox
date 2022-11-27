@@ -1,7 +1,8 @@
 function plot2gif(X,Y,Legend,myPlot,delayTime,file_name)
 % 自定义 gif 图制作函数
-% 需要使用自定义画图函数 myPlot(x,y,legendText)
-% X, Y, Legend 均为 cell 形式
+% 需要使用提前配置好的自定义画图函数 myPlot(x,y,legendText)
+% X, Y, Legend 均为一维 cell 形式，长度相等
+% 把每帧的图所用到的 x, y, legend 各自放入上述的 cell 中
 % delayTime 为帧间间隔时间
 % file_name 为保存的文件名，缺省时为当前目录下的 'test.git'
 

@@ -8,6 +8,9 @@ function plot2gif(X,Y,Legend,myPlot,delayTime,file_name)
 
 if nargin < 6
     file_name = 'test.gif';
+    if nargin < 5
+        delayTime = 0.1;
+    end
 end
 
 for i = 1:length(Legend)

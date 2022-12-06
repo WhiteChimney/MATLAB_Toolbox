@@ -24,4 +24,9 @@ end
 
 fclose(f);
 
+index = intensity == max(intensity);
+time_center = time_delay(index);
+time_center = time_center(1);
+time_delay = time_delay - time_center;
+
 end

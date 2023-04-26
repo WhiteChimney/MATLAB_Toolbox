@@ -3,7 +3,7 @@
 file_name=$1
 pathdef=$2
 
-if [ ! -f $file_name ]; then
+if [ "$file_name" = "" ] || [ ! -f $file_name ]; then
     echo "Cannot find input file!"
     exit 1
 fi

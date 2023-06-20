@@ -6,14 +6,17 @@ clear;
 % 按格式更改 conversionList 变量中的变量名，左为原变量名，右为改后变量名
 % 然后运行即可
 
-% -((-1 + da) E^-((t1 + 
-%         t2 + \[Eta] \[Eta]s) \[Mu]0) (-((-1 + 
-%           da) E^((t1 + t2) \[Eta] \[Eta]s \[Mu]0) eDet) - 
-%      E^((t2 + t1 \[Eta] \[Eta]s) \[Mu]0)
-%        eDet + (-1 + da) E^(\[Eta] \[Eta]s \[Mu]0) (eDet + e0 Y0) + 
-%      E^((t2 + \[Eta] \[Eta]s) \[Mu]0) (eDet + e0 Y0)))
+% ((-1 + d) \[Mu]^n (1 - 
+%    t \[Eta] (-1 + \[Eta]s) \[Mu] + \[Eta]s \[Mu])^(-1 - 
+%   n) ((\[Eta]s - t \[Eta] \[Eta]s)^
+%     n (-1 + \[Eta] (-1 + \[Eta]s) \[Mu] - \[Eta]s \[Mu]) + (-1 + 
+%       d) (-1 + 
+%       t \[Eta] (-1 + \[Eta]s) \[Mu] - \[Eta]s \[Mu]) (((1 - \[Eta]) \
+% \[Eta]s (1 - t \[Eta] (-1 + \[Eta]s) \[Mu] + \[Eta]s \[Mu]))/(
+%      1 + (\[Eta] + \[Eta]s - \[Eta] \[Eta]s) \[Mu]))^
+%     n))/(1 + (\[Eta] + \[Eta]s - \[Eta] \[Eta]s) \[Mu])
 
-dataPosition = [9,14];
+dataPosition = [9,17];
 
 conversionList = {...
     {'\[Eta]a', 'eta_A'},...
@@ -22,7 +25,7 @@ conversionList = {...
     {'\[Mu]0',	'mu_0'},...
     {'\[Mu]',	'mu'},...
     {'\[Epsilon]',	'e'},...
-    {'da',	'dA'},...
+    {'d',	'dI'},...
     {'eDet',	'e_Det'},...
     };
 
@@ -69,6 +72,8 @@ data = strrep(data,' - ','-');
 data = strrep(data,'E^','exp');
 data = strtrim(data);
 data = strrep(data,' ','.*');
+data = strrep(data,'.*+','+');
+data = strrep(data,'.*-','-');
 data = strrep(data,'/','./');
 data = strrep(data,'^','.^');
 data = strrep(data,'\\','\');

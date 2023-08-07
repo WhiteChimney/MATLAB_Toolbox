@@ -1,4 +1,4 @@
-function V_HOM = calculate_HOM_visibility(l,mu0,d_I,d_S,eta_I,eta_S,p_n,kmax)
+function [V_HOM,p4_0,p4_infty] = calculate_HOM_visibility(l,mu0,d_I,d_S,eta_I,eta_S,p_n,kmax)
 
 l = reshape(l,1,[]);
 l = abs(l);

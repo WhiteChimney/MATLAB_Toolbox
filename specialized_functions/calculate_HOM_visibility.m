@@ -1,4 +1,21 @@
-function [V_HOM,p4_0,p4_infty] = calculate_HOM_visibility(l,mu0,d_I,d_S,eta_I,eta_S,p_n,kmax)
+function [V_HOM,p4_0,p4_infty] = calculate_HOM_visibility...
+                                (l,mu0,d_I,d_S,eta_I,eta_S,p_n,kmax)
+% 简易光路图
+% 源A  源B
+%   /\/\
+% IA BS IB
+%    /\
+%  SA  SB
+% 
+% HOM 干涉可见度计算
+% l 为本征值向量
+% mu0 为两光源的总平均光子数
+% d_I,d_S,eta_I,eta_S 为探测器参数
+% 四个探测器的探测效率和暗计数可以不一致
+% 但两个源的 signal 从光源到 BS 处的效率需要相同
+% 这样可以将光路损耗均纳入探测效率中
+% p_n 为光源的光子数分布
+% kmax 为计算阶数，一般取 3 的计算量就已经很大了
 
 l = reshape(l,1,[]);
 l = abs(l);

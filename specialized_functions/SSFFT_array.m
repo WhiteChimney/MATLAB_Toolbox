@@ -28,7 +28,7 @@ function [waveform, f_spectrum] = SSFFT_array(step_num, sum_distance, recard_ste
 
     for n = 1:step_num
 
-        temp = fft(ifft(uu) .* dispersion);
+        temp = ifft(fft(uu) .* dispersion);
         uu = temp .* exp(hhz .* abs(temp).^2);
 
         if mod(n, inverl) == 0

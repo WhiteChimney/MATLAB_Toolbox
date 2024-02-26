@@ -7,7 +7,14 @@ end
 
 n = 1:N;
 
-l = @(c) exp(-n.^2/c^2)
-lambda = l./sum(l);
+l = @(c) l1.*exp((1-n.^2)./c.^2);
+
+fun = @(c) sum(exp((1-n.^2)./c.^2)) - 1./l1;
+
+options = optimoptions('fsolve','Display','off');
+
+c0 = fsolve(fun,1,options);
+
+lambda = l(c0);
 
 end
